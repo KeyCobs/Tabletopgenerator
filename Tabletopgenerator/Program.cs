@@ -1,7 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
+using Tabletopgenerator.Models;
+using Microsoft.EntityFrameworkCore;
 
+
+var builder = WebApplication.CreateBuilder(args);
+ServiceCollector service = new ServiceCollector();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbContextConnection")));
+service.AddServices(builder.Services);
 
 var app = builder.Build();
 
