@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Tabletopgenerator.Models.Entity;
+using Tabletopgenerator.Models.Mapper;
 
 namespace Tabletopgenerator.Models
 {
@@ -20,6 +21,17 @@ namespace Tabletopgenerator.Models
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //Names
+            builder.ApplyConfiguration(new FirstNameConfiguration());
+            builder.ApplyConfiguration(new LastNameConfiguration());
+
+            //Race
+            builder.ApplyConfiguration(new RaceConfiguration());
+
+            //Type
+            builder.ApplyConfiguration(new SettingTypeConfiguration());
+
+            base.OnModelCreating(builder);
         }
     }
 }

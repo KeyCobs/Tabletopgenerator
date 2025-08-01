@@ -4,6 +4,8 @@ namespace Tabletopgenerator.Models.Entity
 {
     public class Race : RaceDetail
     {
+        public IEnumerable<FirstName>? FirstNames { get; set; }
+        public IEnumerable<LastName>? LastNames { get; set; }
     }
 
     public class RaceDetail

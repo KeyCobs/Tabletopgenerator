@@ -4,7 +4,8 @@ namespace Tabletopgenerator.Models.Entity
 {
     public class LastName : LastNameDetail
     {
-
+        public SettingType? SettingType { get; set; }
+        public Race? Race { get; set; }
     }
     public class LastNameDetail 
     {

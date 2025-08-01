@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tabletopgenerator.Models.Entity
 {
     public class FirstName : FirstNameDefault
     {
-        //Keys etc,...
+        public SettingType? SettingType { get; set; }
+        public Race? Race { get; set; }
     }
     public class FirstNameDefault
     {
