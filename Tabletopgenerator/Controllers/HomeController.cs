@@ -1,21 +1,29 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Tabletopgenerator.Models;
+using Tabletopgenerator.Models.ViewModel;
+using Tabletopgenerator.Repository.Implementation;
 
 namespace Tabletopgenerator.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IFirstNameRepository _firstNameRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+                              IFirstNameRepository firstNameRepository                  
+            )
         {
+            _firstNameRepository = firstNameRepository;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var a = await _firstNameRepository.GetAllFirstNameAsync();
+
+            return View(a);
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,81 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<Tabletopgenerator.Models.Entity.FirstName>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Generated Names</title>
+    <style>
+        body {
+            background: #f3eddc;
+            font-family: 'Georgia', serif;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fff8e6;
+            border: 4px double #7b5a34;
+            padding: 30px;
+            border-radius: 12px;
+            width: 600px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #4a3218;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 22px;
+            padding: 10px;
+            border-bottom: 1px dashed #b69d79;
+            color: #3e2a14;
+            font-family: 'Papyrus', fantasy;
+        }
+
+        .btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #c0a06b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #a88759;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Summoned Fantasy Names</h1>
+
+        <ul>
+            @foreach (var name in Model)
+            {
+                <li>@name.Name</li>
+            }
+        </ul>
+
+        <form method="post">
+            <button type="submit" class="btn">Generate Again</button>
+        </form>
+    </div>
+</body>
+</html>
