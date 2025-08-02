@@ -10,6 +10,11 @@
             }
         }
 
+        public static void CustomError(object argument, string argumentName, string page, int linenumber)
+        {
+            throw new ArgumentException("Something went wrong see " + page + " On line: " + linenumber, argumentName);
+        }
+
         public static void AgainstNullOrWhiteSpace(string argument, string argumentName)
         {
             if (string.IsNullOrWhiteSpace(argument))

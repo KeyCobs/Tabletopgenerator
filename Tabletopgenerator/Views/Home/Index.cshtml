@@ -1,81 +1,120 @@
-﻿@model List<Tabletopgenerator.Models.Entity.FirstName>
-
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Generated Names</title>
+    <meta charset="UTF-8">
+    <title>Tabletop Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background: #f3eddc;
-            font-family: 'Georgia', serif;
-            padding: 50px;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            transition: all 0.3s;
+        }
+
+        .main {
+            margin-left: 240px;
+            padding: 2rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        .auth-buttons {
             display: flex;
-            justify-content: center;
+            gap: 1rem;
         }
 
-        .container {
-            background: #fff8e6;
-            border: 4px double #7b5a34;
-            padding: 30px;
-            border-radius: 12px;
-            width: 600px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 28px;
-            color: #4a3218;
-            margin-bottom: 25px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            font-size: 22px;
-            padding: 10px;
-            border-bottom: 1px dashed #b69d79;
-            color: #3e2a14;
-            font-family: 'Papyrus', fantasy;
-        }
-
-        .btn {
-            display: block;
-            margin: 30px auto 0;
-            padding: 12px 24px;
-            font-size: 18px;
-            background-color: #c0a06b;
-            color: white;
+        .login-button,
+        .upgrade-button {
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
         }
 
-            .btn:hover {
-                background-color: #a88759;
-            }
+        .login-button {
+            background: #dee2e6;
+            color: #212529;
+        }
+
+        .upgrade-button {
+            background: #00b894;
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: 0.2s ease-in-out;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .card.active:hover {
+            transform: translateY(-3px);
+            cursor: pointer;
+        }
+
+        .card.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>✨ Summoned Fantasy Names</h1>
+    <div class="main" id="main">
+        <div class="header">
+            @* <button class="toggle-button" onclick="toggleSidebar()">☰</button> *@
+            <div class="auth-buttons">
+                <button class="login-button">Login</button>
+                <button class="upgrade-button">Upgrade</button>
+            </div>
+        </div>
 
-        <ul>
-            @foreach (var name in Model)
-            {
-                <li>@name.Name</li>
-            }
-        </ul>
-
-        <form method="post">
-            <button type="submit" class="btn">Generate Again</button>
-        </form>
+        <div class="grid">
+            <div class="card active">
+                <h3>Race Name Generator</h3>
+                <p>Fantasy-themed race names with cultural flavor</p>
+            </div>
+            <div class="card disabled">
+                <h3>City Name Generator</h3>
+                <p>Generate immersive city names for your world</p>
+            </div>
+            <div class="card disabled">
+                <h3>Religion Generator</h3>
+                <p>Random pantheons and beliefs for worldbuilding</p>
+            </div>
+            <div class="card disabled">
+                <h3>Blacksmith Generator</h3>
+                <p>Give your towns blacksmiths a little flavor</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("collapsed");
+        }
+    </script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 ﻿using Tabletopgenerator.Repository.Implementation;
+using Tabletopgenerator.Repository.Interface;
 
 namespace Tabletopgenerator.Models
 {
@@ -7,7 +8,8 @@ namespace Tabletopgenerator.Models
         public void AddServices(IServiceCollection service)
         {
             //service.AddScoped
-            service.AddScoped<IFirstNameRepository,FirstNameRepository>();
+            service.AddScoped<IFirstNameRepository,FirstNameRepository>()
+                   .AddScoped<INameGeneratorRepository, NameGeneratorRepository>();
         }
     }
 }

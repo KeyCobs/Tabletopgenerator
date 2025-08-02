@@ -5,15 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tabletopgenerator</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Tabletopgenerator.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="sidebar" id="sidebar">
+        <h2>🧙 TabletopGen</h2>
+        <a href="#" class="nav-link">
+            <span class="icon-placeholder"></span>
+            <span class="link-text">Dashboard</span>
+        </a>
+        <a href="#" class="nav-link">
+            <span class="icon-placeholder"></span>
+            <span class="link-text">Name Generator</span>
+        </a>
+        <!-- and so on... -->
+
+@*         <a href="#" class="nav-link">Dashboard</a>
+        <a href="#" class="nav-link">Name Generator</a>
+        <a href="#" class="nav-link">Quest Generator</a>
+        <a href="#" class="nav-link">Map Tools</a>
+        <a href="#" class="nav-link">Settings</a> *@
+    </div>
+    <div class="main" id="main">
+        <div class="header">
+            <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        </div>
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <script>
+                function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+
+            const toggleButton = document.querySelector('.toggle-button');
+            toggleButton.style.left = sidebar.classList.contains('collapsed') ? '60px' : '220px';
+        }
+
+        </script>
 
     <footer class="border-top footer text-muted">
         <div class="container">
