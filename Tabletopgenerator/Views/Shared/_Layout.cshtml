@@ -12,7 +12,7 @@
 <body>
     <div class="sidebar" id="sidebar">
         <h2>🧙 TabletopGen</h2>
-        <a href="#" class="nav-link">
+        <a asp-controller="Home" asp-action="Index" class="nav-link">
             <span class="icon-placeholder"></span>
             <span class="link-text">Dashboard</span>
         </a>
@@ -20,19 +20,30 @@
             <span class="icon-placeholder"></span>
             <span class="link-text">Name Generator</span>
         </a>
-        <!-- and so on... -->
+        <a href="#" class="nav-link">
+            <span class="icon-placeholder"></span>
+            <span class="link-text">Quest Generator</span>
+        </a>
+        <a href="#" class="nav-link">
+            <span class="icon-placeholder"></span>
+            <span class="link-text">Map Tools</span>
+        </a>
+        <a href="#" class="nav-link">
+            <span class="icon-placeholder"></span>
+            <span class="link-text">Settings</span>
+        </a>
 
-@*         <a href="#" class="nav-link">Dashboard</a>
-        <a href="#" class="nav-link">Name Generator</a>
-        <a href="#" class="nav-link">Quest Generator</a>
-        <a href="#" class="nav-link">Map Tools</a>
-        <a href="#" class="nav-link">Settings</a> *@
+
     </div>
     <div class="main" id="main">
         <div class="header">
             <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+            <div class="auth-buttons">
+                <button class="upgrade-button">Upgrade</button>
+                <button class="login-button">Login</button>
+            </div>
         </div>
-    </div>
+       </div>
 
     <div class="container">
         <main role="main" class="pb-3">

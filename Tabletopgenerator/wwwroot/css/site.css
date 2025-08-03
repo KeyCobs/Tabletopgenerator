@@ -18,5 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+    color: #212529;
+    transition: all 0.3s;
 }

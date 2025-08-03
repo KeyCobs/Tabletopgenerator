@@ -77,3 +77,40 @@
             padding: 2rem;
             transition: margin-left 0.3s ease;
         }
+
+
+.auth-buttons {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2000;
+}
+
+
+
+.login-button,
+.upgrade-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-button {
+    background: #dee2e6;
+    color: #212529;
+}
+
+.upgrade-button {
+    background: #00b894;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 30px;
+}

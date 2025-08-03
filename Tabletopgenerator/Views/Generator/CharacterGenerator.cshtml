@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+
+        .main {
+            margin-left: 240px;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .generate-button {
+            padding: 0.75rem 1.2rem;
+            background-color: #00b894;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .result-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Character Generator</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="race">Race</label>
+                <select id="race" name="race">
+                    <option>Human</option>
+                    <option>Elf</option>
+                    <option>Dwarf</option>
+                    <option>Orc</option>
+                    <option>Tiefling</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Non-binary</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="setting">Setting Type</label>
+                <select id="setting" name="setting">
+                    <option>High Fantasy</option>
+                    <option>Steampunk</option>
+                    <option>Dark Fantasy</option>
+                    <option>Post-Apocalyptic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="customTrait">Custom Trait</label>
+                <input type="text" id="customTrait" name="customTrait" placeholder="E.g. Pirate, Scholar, Assassin">
+            </div>
+            <div class="form-group full-width">
+                <button type="submit" class="generate-button">Generate Character</button>
+            </div>
+        </form>
+
+        <div class="result-box">
+            <h3>Generated Character:</h3>
+            <p><em>Your character info will appear here...</em></p>
+        </div>
+    </div>
+</body>
+</html>
