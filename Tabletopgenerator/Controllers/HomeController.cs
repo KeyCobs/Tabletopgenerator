@@ -31,7 +31,6 @@ namespace Tabletopgenerator.Controllers
 
         public async Task<IActionResult> Generate(int typeId, string gender, int raceId)
         {
-            NameGeneratorViewModel randomName = await _nameGenerator.GetRandomNameAsync(raceId, typeId, gender);
             return View();
         }
 

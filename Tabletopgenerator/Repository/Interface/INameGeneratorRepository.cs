@@ -4,6 +4,6 @@ namespace Tabletopgenerator.Repository.Implementation
 {
     public interface INameGeneratorRepository
     {
-        public Task<NameGeneratorViewModel> GetRandomNameAsync(int raceId = 0, int typeId = 0, string gender = null);
+        public Task<GeneratedCharacterViewModel> GetMultipleRandomNameAsync(SettingsCharacterViewModel setting);
     }
 }

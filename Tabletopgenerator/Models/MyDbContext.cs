@@ -17,7 +17,7 @@ namespace Tabletopgenerator.Models
         public DbSet<Race> tblRace { get; set; }
 
         //Type
-        public DbSet<SettingType> tblType { get; set; }
+        public DbSet<SettingType> tblSettingType { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Tabletopgenerator.Models.ViewModel.SettingsCharacterViewModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,44 +67,87 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            .character-list
+
+        {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .character-list li {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+            .character-list li:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+        .character-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #343a40;
+        }
+
         }
     </style>
 </head>
 <body>
     <div class="main">
         <h1>Character Generator</h1>
-        <form method="post">
+        <form asp-action="Character" asp-controller="Generator" method="post">
             <div class="form-group">
-                <label for="race">Race</label>
-                <select id="race" name="race">
-                    <option>Human</option>
-                    <option>Elf</option>
-                    <option>Dwarf</option>
-                    <option>Orc</option>
-                    <option>Tiefling</option>
+                <label asp-for="Criterea.Race.Id">Race</label>
+                <select asp-for="Criterea.Race.Id">
+                    <option value="">-- Any Race --</option>
+                    @foreach (var race in Model.Races)
+                    {
+                        <option value="@race.Id">@race.Name</option>
+                    }
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Non-binary</option>
+                <label asp-for="Criterea.Gender">Gender</label>
+                <select asp-for="Criterea.Gender">
+                    <option value="">-- Unisex --</option>
+                    @foreach (var gender in Model.Genders)
+                    {
+                        <option value="@gender">@gender</option>
+                    }
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="setting">Setting Type</label>
-                <select id="setting" name="setting">
-                    <option>High Fantasy</option>
-                    <option>Steampunk</option>
-                    <option>Dark Fantasy</option>
-                    <option>Post-Apocalyptic</option>
+                <label asp-for="Criterea.Setting.Id">Setting Type</label>
+                <select asp-for="Criterea.Setting.Id">
+                    <option value="">-- Any Type --</option>
+                    @foreach (var setting in Model.SettingTypes)
+                    {
+                        <option value="@setting.Id">@setting.Type</option>
+                    }
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="customTrait">Custom Trait</label>
-                <input type="text" id="customTrait" name="customTrait" placeholder="E.g. Pirate, Scholar, Assassin">
+                <label asp-for="Criterea.CustomTrait">Custom Trait</label>
+                <input asp-for="Criterea.CustomTrait" placeholder="E.g. Pirate, Scholar, Assassin" />
             </div>
+
+            <div class="form-group">
+                <label asp-for="Criterea.Amount">Amount</label>
+                <input asp-for="Criterea.Amount" type="number" min="1" value="1" />
+            </div>
+
             <div class="form-group full-width">
                 <button type="submit" class="generate-button">Generate Character</button>
             </div>
@@ -111,8 +155,30 @@
 
         <div class="result-box">
             <h3>Generated Character:</h3>
-            <p><em>Your character info will appear here...</em></p>
+
+            @if (Model?.GeneratedCharacter != null && Model.GeneratedCharacter.FirstName.Any())
+            {
+                <ul class="character-list">
+                    @for (int i = 0; i < Model.GeneratedCharacter.FirstName.Count && i < Model.GeneratedCharacter.LastName.Count; i++)
+                    {
+                        <li>
+                            <span class="character-name">
+                                @Model.GeneratedCharacter.FirstName[i].Name @Model.GeneratedCharacter.LastName[i].Name
+                            </span>
+                        </li>
+                    }
+                </ul>
+
+            }
+
+            @if ((Model?.GeneratedCharacter == null || !Model.GeneratedCharacter.FirstName.Any()) &&
+                        (Model?.GeneratedCharacter == null || !Model.GeneratedCharacter.LastName.Any()))
+            {
+                <p><em>Your character info will appear here...</em></p>
+            }
         </div>
+
+
     </div>
 </body>
 </html>

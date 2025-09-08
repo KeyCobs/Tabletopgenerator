@@ -8,8 +8,10 @@ namespace Tabletopgenerator.Models
         public void AddServices(IServiceCollection service)
         {
             //service.AddScoped
-            service.AddScoped<IFirstNameRepository,FirstNameRepository>()
-                   .AddScoped<INameGeneratorRepository, NameGeneratorRepository>();
+            service.AddScoped<IFirstNameRepository, FirstNameRepository>()
+                   .AddScoped<INameGeneratorRepository, NameGeneratorRepository>()
+                   .AddScoped<IGeneratorRepository, GeneratorRepository>();
+                    
         }
     }
 }
