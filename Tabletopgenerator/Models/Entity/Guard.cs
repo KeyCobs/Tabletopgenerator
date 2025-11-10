@@ -1,7 +1,11 @@
-﻿namespace Tabletopgenerator.Models.Entity
+﻿using System.Runtime.CompilerServices;
+
+namespace Tabletopgenerator.Models.Entity
 {
     public static class Guard
     {
+
+
         public static void AgainstNull(object argument, string argumentName)
         {
             if (argument == null)
@@ -10,9 +14,10 @@
             }
         }
 
-        public static void CustomError(object argument, string argumentName, string page, int linenumber)
+        public static void CustomError(object argument, string argumentName, string page, string errorCode, [CallerLineNumber] int lineNumber = 0)
         {
-            throw new ArgumentException("Something went wrong see " + page + " On line: " + linenumber, argumentName);
+            errorCode = errorCode + lineNumber.ToString();
+            throw new ArgumentException("Something went wrong see " + page + " Error Code: " + errorCode, argumentName);
         }
 
         public static void AgainstNullOrWhiteSpace(string argument, string argumentName)
