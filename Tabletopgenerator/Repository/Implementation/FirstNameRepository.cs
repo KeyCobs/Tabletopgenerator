@@ -2,7 +2,7 @@
 using Tabletopgenerator.Models;
 using Tabletopgenerator.Models.Entity;
 using Tabletopgenerator.Repository;
-using Tabletopgenerator.Repository.Implementation;
+using Tabletopgenerator.Repository.Interface;
 
 namespace Tabletopgenerator.Repository.Implementation
 {

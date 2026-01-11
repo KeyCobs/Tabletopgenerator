@@ -1,6 +1,6 @@
 ﻿using Tabletopgenerator.Models.ViewModel;
 
-namespace Tabletopgenerator.Repository.Implementation
+namespace Tabletopgenerator.Repository.Interface
 {
     public interface INameGeneratorRepository
     {

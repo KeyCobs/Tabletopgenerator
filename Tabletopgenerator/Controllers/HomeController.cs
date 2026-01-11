@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Tabletopgenerator.Models;
 using Tabletopgenerator.Models.ViewModel;
-using Tabletopgenerator.Repository.Implementation;
+using Tabletopgenerator.Repository.Interface;
 
 namespace Tabletopgenerator.Controllers
 {

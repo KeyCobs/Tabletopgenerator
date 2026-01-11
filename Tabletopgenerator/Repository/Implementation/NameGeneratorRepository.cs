@@ -2,9 +2,9 @@
 using Tabletopgenerator.Models;
 using Tabletopgenerator.Models.Entity;
 using Tabletopgenerator.Models.ViewModel;
-using Tabletopgenerator.Repository.Implementation;
+using Tabletopgenerator.Repository.Interface;
 
-namespace Tabletopgenerator.Repository.Interface
+namespace Tabletopgenerator.Repository.Implementation
 {
     public class NameGeneratorRepository : BaseRepository, INameGeneratorRepository
     {
