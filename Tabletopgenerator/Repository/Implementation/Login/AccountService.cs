@@ -77,7 +77,7 @@ namespace Tabletopgenerator.Repository.Implementation.Login
                 LastLoggedIn = user.LastLoggedIn,
                 CreatedOn = user.CreatedOn,
                 DateOfBirth = user.DateOfBirth,
-                LastUpdatedOn = user.LastUpdatedOn
+                LastUpdatedOn = user.LastUpdated
             };
         }
 
@@ -119,8 +119,7 @@ namespace Tabletopgenerator.Repository.Implementation.Login
                 IsActive = true,
                 CreatedOn = DateTime.Now,
                 LastLoggedIn = DateTime.Now,
-                LastUpdatedOn = DateTime.Now,
-                UserLevel = 1
+                LastUpdated = DateTime.Now
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);

@@ -1,5 +1,6 @@
 ﻿using Tabletopgenerator.Repository.Implementation;
 using Tabletopgenerator.Repository.Interface;
+using Tabletopgenerator.Repository.Interface.Login;
 
 namespace Tabletopgenerator.Models
 {
@@ -9,7 +10,9 @@ namespace Tabletopgenerator.Models
         {
             //service.AddScoped
             service.AddScoped<IFirstNameRepository,FirstNameRepository>()
-                   .AddScoped<INameGeneratorRepository, NameGeneratorRepository>();
+                   .AddScoped<INameGeneratorRepository, NameGeneratorRepository>()
+                   .AddScoped<IAccountService, IAccountService>()
+                   .AddScoped<IEmailService, IEmailService>();
         }
     }
 }
