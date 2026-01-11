@@ -9,7 +9,7 @@ namespace Tabletopgenerator.Repository.Interface.Login
         Task<IdentityResult> ConfirmEmailAsync(Guid userId, string token);
         Task<SignInResult> LoginUserAsync(LoginViewModel model);
         Task LogOutUserAsync();
-        Task SendEmailConfimationAsync(string email);
+        Task SendEmailConfirmationAsync(string email);
         Task<ProfileViewModel> GetUserProfileByEmailAsync(string email);
     }
 }

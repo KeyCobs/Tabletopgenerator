@@ -141,7 +141,7 @@ namespace Tabletopgenerator.Repository.Implementation.Login
             return result;
         }
 
-        public async Task SendEmailConfimationAsync(string email)
+        public async Task SendEmailConfirmationAsync(string email)
         {
             Guard.AgainstNullOrWhiteSpace(email, nameof(email));
 
