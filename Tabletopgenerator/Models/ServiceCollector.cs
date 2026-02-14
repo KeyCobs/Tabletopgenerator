@@ -1,4 +1,5 @@
 ﻿using Tabletopgenerator.Repository.Implementation;
+using Tabletopgenerator.Repository.Implementation.Login;
 using Tabletopgenerator.Repository.Interface;
 using Tabletopgenerator.Repository.Interface.Login;
 
@@ -11,8 +12,8 @@ namespace Tabletopgenerator.Models
             //service.AddScoped
             service.AddScoped<IFirstNameRepository,FirstNameRepository>()
                    .AddScoped<INameGeneratorRepository, NameGeneratorRepository>()
-                   .AddScoped<IAccountService, IAccountService>()
-                   .AddScoped<IEmailService, IEmailService>();
+                   .AddScoped<IAccountService, AccountService>()
+                   .AddScoped<IEmailService, EmailService>();
         }
     }
 }
